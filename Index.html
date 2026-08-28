@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio • Nova Reset Studio & Arly Dev</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- BARRA DE NAVEGACIÓN SUPERIOR -->
+    <header>
+        <div class="max-w-4xl mx-auto px-6 flex flex-wrap items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <span class="text-white font-extrabold text-sm md:text-base tracking-wider">NOVA RESET STUDIO</span>
+                <span class="text-xs text-[#00d2c4] font-semibold hidden sm:inline">| ARLY DEV</span>
+            </div> 
+
+<nav class="flex items-center space-x-4 md:space-x-6 text-xs md:text-sm font-medium">
+    <a href="index.html" class="text-[#00d2c4] font-semibold transition">Inicio</a>
+    <a href="test.html" class="text-slate-400 hover:text-[#00d2c4] transition">Test Ikigai</a>
+    <a href="cursos.html" class="text-slate-400 hover:text-[#00d2c4] transition">Cursos</a>
+    <a href="blog.html" class="text-slate-400 hover:text-[#00d2c4] transition">Blog</a>
+    <a href="index.html#contacto" class="text-slate-400 hover:text-[#00d2c4] transition">Mentoría</a>
+</nav>
+
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL: PORTADA DE PRESENTACIÓN (HERO SECTION) -->
+    <main>
+        <section class="card text-center relative overflow-hidden py-10 md:py-14">
+            
+            <!-- Etiqueta de Marca -->
+            <div class="mb-4 inline-block px-4 py-1.5 rounded-full bg-[#00d2c4]/10 border border-[#00d2c4]/30">
+                <span class="text-xs font-bold text-[#00d2c4] tracking-widest uppercase"> NOVA RESET STUDIO • BY ARLENE CAPELLAN</span>
+            </div>
+
+            <!-- Título Principal -->
+            <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
+                Ordena tu Mente, Descubre tu <span class="text-[#00d2c4]">Ikigai</span> y Domina tu Futuro
+            </h2>
+
+            <!-- Propuesta de Valor -->
+            <p class="text-slate-300 text-sm md:text-base mb-8 max-w-2xl mx-auto leading-relaxed">
+                Una plataforma diseñada para perfiles multidisciplinares y técnicos. Si sabes que tienes mucho conocimiento pero no sabes en qué destacar, aquí encontrarás tu brújula profesional, rutas formativas especializadas y herramientas de alto impacto.
+            </p>
+
+            <!-- Botones de Acción Principal -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+                <!-- Enlace directo que lleva a la página del test -->
+                <a href="test.html" class="btn-primary w-full sm:w-auto text-base py-3.5 px-8 shadow-lg shadow-[#00d2c4]/25 text-center inline-block">
+                     Ir al Test de Ikigai
+                </a>
+                <a href="cursos.html" class="w-full sm:w-auto bg-slate-900/80 hover:bg-slate-800 text-slate-200 font-semibold py-3.5 px-6 rounded-lg border border-slate-700 transition text-sm text-center">
+     Ver Cursos (0 a Experto)
+</a>
+            </div>
+
+            <!-- Mini Tarjetas de Presentación del Ecosistema -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6 border-t border-slate-800/80 text-left">
+                <div class="bg-slate-950/60 p-3.5 rounded-xl border border-slate-800/60">
+                    <span class="text-[#00d2c4] text-base font-bold">01. Test Vocacional</span>
+                    <p class="text-xs text-slate-400 mt-1">Conecta tus pasiones, oficios y hard/soft skills en minutos.</p>
+                </div>
+                <div class="bg-slate-950/60 p-3.5 rounded-xl border border-slate-800/60">
+                    <span class="text-[#00d2c4] text-base font-bold">02. Academia & Cursos</span>
+                    <p class="text-xs text-slate-400 mt-1">Formación técnica, automatización, IA y desarrollo web.</p>
+                </div>
+                <div class="bg-slate-950/60 p-3.5 rounded-xl border border-slate-800/60">
+                    <span class="text-[#00d2c4] text-base font-bold">03. Blog & Mentoría</span>
+                    <p class="text-xs text-slate-400 mt-1">Hackea la parálisis por análisis y escala profesionalmente.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SECCIÓN DE CURSOS (Vista previa en la Home) -->
+        <section id="cursos" class="card text-left mt-6">
+            <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2"> Cursos: De 0 a Experto</h3>
+            <p class="text-slate-400 text-xs md:text-sm mb-4">Rutas de aprendizaje diseñadas para llevarte desde los fundamentos hasta el dominio profesional en tecnología, automatización y operaciones.</p>
+            <div class="grid sm:grid-cols-2 gap-3">
+                <div class="bg-slate-950/70 p-4 rounded-xl border border-slate-800">
+                    <h4 class="text-[#00d2c4] font-bold text-sm">Desarrollo Web & Frontend</h4>
+                    <p class="text-xs text-slate-400 mt-1">HTML, CSS, Tailwind, JavaScript moderno y despliegue de proyectos con Arly Dev.</p>
+                </div>
+                <div class="bg-slate-950/70 p-4 rounded-xl border border-slate-800">
+                    <h4 class="text-[#00d2c4] font-bold text-sm">Automatización e Inteligencia Artificial</h4>
+                    <p class="text-xs text-slate-400 mt-1">Workflows modernos, herramientas de IA y optimización de la productividad diaria.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Nova Reset Studio & Arly Dev. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de Ikigai | Nova Reset Studio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Enlace a tus estilos personalizados -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center justify-between p-4 selection:bg-[#00d2c4] selection:text-slate-950">
+
+    <!-- Barra de Navegación Superior -->
+    <header class="w-full max-w-4xl bg-slate-900/80 backdrop-blur-md border border-slate-800 rounded-2xl px-6 py-4 mb-6 flex flex-wrap items-center justify-between shadow-xl">
+        <div class="flex items-center space-x-2">
+            <span class="text-[#00d2c4] font-extrabold text-lg tracking-wider">NOVA RESET STUDIO</span>
+            <span class="text-xs text-slate-500 uppercase tracking-widest hidden sm:inline">| ARLY DEV</span>
+        </div>
+
+<nav class="flex items-center space-x-4 md:space-x-6 text-xs md:text-sm font-medium">
+    <a href="index.html" class="text-slate-400 hover:text-[#00d2c4] transition">Inicio</a>
+    <a href="test.html" class="text-[#00d2c4] font-semibold transition">Test Ikigai</a>
+    <a href="cursos.html" class="text-slate-400 hover:text-[#00d2c4] transition">Cursos</a>
+    <a href="blog.html" class="text-slate-400 hover:text-[#00d2c4] transition">Blog</a>
+    <a href="index.html#contacto" class="text-slate-400 hover:text-[#00d2c4] transition">Mentoría</a>
+</nav>
+
+    </header>
+
+    <!-- Contenedor Principal del Test -->
+    <main class="w-full max-w-2xl bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden my-auto">
+
+        <!-- Barra de Progreso (Oculta en la bienvenida) -->
+        <div id="progress-indicator" class="hidden mb-6">
+            <div class="flex justify-between text-xs text-slate-400 mb-2 font-medium">
+                <span>Progreso del Test</span>
+                <span>Paso <span id="current-step-num">1</span> de 7</span>
+            </div>
+            <div class="w-full bg-slate-950 h-2 rounded-full overflow-hidden border border-slate-800">
+                <div id="progress-bar" class="bg-[#00d2c4] h-full transition-all duration-300 w-[14%]"></div>
+            </div>
+        </div>
+
+        <!-- VISTA 1: BIENVENIDA -->
+        <section id="welcome-view" class="card text-center">
+          
+            <h2 class="text-3xl font-bold text-white mb-3">Descubre tu Ikigai Profesional</h2>
+            <p class="text-slate-300 text-sm mb-6 max-w-xl mx-auto leading-relaxed">
+                Una guía interactiva diseñada especialmente para perfiles multipotenciales y multidisciplinares: si sabes que tienes mucho conocimiento en diversos campos pero aún no descubres en qué eres realmente excelente, este test alineará tus pasiones, tu impacto y tus habilidades técnicas y blandas hacia oportunidades reales, ya sea en el mundo presencial, remoto o independiente.
+            </p>
+            <button onclick="startAssessment()" class="btn-primary">
+                Comenzar Evaluación 
+            </button>
+        </section>
+
+        <!-- Vista 2: Cuestionario Dinámico (Pasos 1 al 7) -->
+        <section id="quiz-view" class="hidden">
+            <div id="question-container" class="mb-8">
+                <!-- Se inyecta dinámicamente desde script.js -->
+            </div>
+
+            <!-- Botones de Navegación -->
+            <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+                <button id="prev-btn" onclick="prevStep()" class="text-slate-400 hover:text-white text-sm font-medium transition flex items-center space-x-1">
+                    <span>← Anterior</span>
+                </button>
+                <button onclick="nextStep()" class="bg-[#00d2c4] hover:bg-[#00beb1] text-slate-950 font-bold px-6 py-2.5 rounded-xl transition text-sm ml-auto">
+                    Siguiente →
+                </button>
+            </div>
+        </section>
+
+        <!-- Vista 3: Pantalla de Carga (Procesando resultados) -->
+        <section id="loading-view" class="hidden text-center py-12">
+            <div class="inline-block w-12 h-12 border-4 border-slate-800 border-t-[#00d2c4] rounded-full animate-spin mb-4"></div>
+            <h2 class="text-xl font-bold text-white mb-2">Analizando tus respuestas...</h2>
+            <p class="text-slate-400 text-sm">Cruzando pasiones, habilidades y requerimientos del mercado global.</p>
+        </section>
+
+        <!-- Vista 4: Resultados del Ikigai -->
+        <section id="results-view" class="hidden space-y-6">
+            <div class="text-center pb-4 border-b border-slate-800">
+                <span class="text-xs font-semibold text-[#00d2c4] uppercase tracking-wider">Reporte Generado con Éxito</span>
+                <h2 class="text-2xl font-bold text-white mt-1">Tu Matriz Ikigai & Perfil Global</h2>
+            </div>
+
+            <!-- Resumen de Entradas -->
+            <div class="bg-slate-950/75 border border-slate-800 p-4 rounded-2xl space-y-3">
+                <h3 class="text-xs font-semibold text-[#00d2c4] uppercase tracking-wider">Tus Pilares Seleccionados</h3>
+                <div class="text-xs space-y-2 text-slate-300">
+                    <p><strong>Lo que amas:</strong> <span id="summary-passion" class="text-slate-400"></span></p>
+                    <p><strong>Tu Misión:</strong> <span id="summary-mission" class="text-slate-400"></span></p>
+                    <p><strong>Habilidades Blandas:</strong> <span id="summary-soft" class="text-slate-400"></span></p>
+                    <p><strong>Habilidades Duras:</strong> <span id="summary-hard" class="text-slate-400"></span></p>
+                </div>
+            </div>
+
+            <!-- Roles Ideales -->
+            <div>
+                <h3 class="text-sm font-semibold text-white mb-3">Roles Internacionales Sugeridos:</h3>
+                <div id="results-roles" class="grid sm:grid-cols-2 gap-3">
+                    <!-- Inyectado por script.js -->
+                </div>
+            </div>
+
+            <!-- Análisis de Coincidencia -->
+            <div class="bg-slate-950/75 border border-slate-800 p-4 rounded-2xl">
+                <h3 class="text-sm font-semibold text-white mb-2">Análisis de Adecuación al Mercado Remoto</h3>
+                <div id="results-match" class="text-xs text-slate-300 space-y-2">
+                    <!-- Inyectado por script.js -->
+                </div>
+            </div>
+
+            <!-- Tareas Diarias -->
+            <div>
+                <h3 class="text-sm font-semibold text-white mb-3">Tareas Clave en tu Día a Día:</h3>
+                <div id="results-tasks" class="grid sm:grid-cols-2 gap-3">
+                    <!-- Inyectado por script.js -->
+                </div>
+            </div>
+
+            <!-- Keywords Recomendadas -->
+            <div>
+                <h3 class="text-sm font-semibold text-white mb-3">Palabras Clave para Búsqueda de Empleo:</h3>
+                <div id="results-keywords" class="flex flex-wrap gap-2">
+                    <!-- Inyectado por script.js -->
+                </div>
+            </div>
+
+            <!-- Estrategia Final -->
+            <div class="bg-slate-950/75 border border-slate-800 p-4 rounded-2xl">
+                <h3 class="text-sm font-semibold text-[#00d2c4] mb-2">Estrategia de Posicionamiento</h3>
+                <div id="results-strategy">
+                    <!-- Inyectado por script.js -->
+                </div>
+            </div>
+
+            <!-- Formulario de Envío por Correo -->
+            <div class="bg-slate-950 border border-slate-800 p-5 rounded-2xl text-center space-y-3">
+                <h3 class="text-sm font-semibold text-white">¿Quieres guardar este reporte detallado?</h3>
+                <p class="text-xs text-slate-400">Recibe tu análisis completo directamente en tu correo electrónico.</p>
+                <div class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
+                    <input type="email" id="user-email-input" placeholder="tu.correo@ejemplo.com" class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-slate-100 focus:outline-none focus:border-[#00d2c4]">
+                    <button onclick="sendResultsByEmail()" class="bg-[#00d2c4] hover:bg-[#00beb1] text-slate-950 font-bold px-5 py-2.5 rounded-xl transition text-xs">
+                        Enviar Reporte
+                    </button>
+                </div>
+                <p id="email-feedback" class="text-xs mt-2 hidden"></p>
+            </div>
+
+            <!-- Botón Reiniciar -->
+            <div class="text-center pt-2">
+                <button onclick="resetAssessment()" class="text-slate-500 hover:text-slate-300 text-xs underline transition">
+                    Reiniciar Test y Probar de Nuevo
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+   <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-900/80 backdrop-blur-md py-6 text-center text-xs text-slate-500 space-y-1">
+        <p>© 2026 Nova Reset Studio • Arlene Capellán (Arly Dev). Todos los derechos reservados.</p>
+        <p class="text-slate-600">Prohibida la reproducción total o parcial de este sistema, código y test sin autorización expresa (No Copy / All Rights Reserved).</p>
+    </footer>
+
+    <!-- Script con la lógica Dinámica del Test -->
+    <script src="script.js"></script>
+</body>
+</html>
