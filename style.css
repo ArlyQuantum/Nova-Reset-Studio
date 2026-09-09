@@ -1,0 +1,92 @@
+:root {
+    --bg-color: #0b0f19;
+    --primary-color: #00d2c4;
+    --primary-hover: #00b4a6;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border-color: rgba(0, 210, 196, 0.4); /* Borde turquesa elegante */
+    --card-bg: rgba(15, 23, 42, 0.85);       /* Fondo oscuro semitransparente */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    background-image: 
+        linear-gradient(rgba(7, 10, 18, 0.6), rgba(7, 10, 18, 0.75)), 
+        url('imagenes/FONDO.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header {
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    background-color: rgba(7, 10, 18, 0.75);
+    backdrop-filter: blur(10px);
+}
+
+main {
+    flex: 1;
+    max-width: 900px;
+    margin: 30px auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 🌟 ESTILO DE LAS CAJAS FLOTANTES (REPORTES / TARJETAS) */
+.report-card, .card, .container {
+    background: var(--card-bg) !important;
+    backdrop-filter: blur(12px);
+    border: 2px solid var(--border-color) !important;
+    border-radius: 16px;
+    padding: 35px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 210, 196, 0.15);
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Botón llamativo estilo tecnológico */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #070a12;
+    font-weight: bold;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 210, 196, 0.4);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    box-shadow: 0 0 25px rgba(0, 210, 196, 0.7);
+    transform: translateY(-2px);
+}
+
+footer {
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+    background-color: rgba(7, 10, 18, 0.75);
+    backdrop-filter: blur(10px);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
