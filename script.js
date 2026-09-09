@@ -242,7 +242,7 @@ async function sendResultsByEmail() {
     feedback.classList.remove('hidden');
 
     try {
-        const response = await fetch('https://nova-reset-backend-bfjsbs6xd-arly-dev.vercel.app/api/send-email', {
+        const response = await fetch('https://nova-reset-backend.vercel.app/api/send-email', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: userData.email, userData: userData })
