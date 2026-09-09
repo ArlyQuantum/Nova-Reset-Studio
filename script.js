@@ -258,6 +258,7 @@ async function sendResultsByEmail() {
     }
 
     userData.email = email;
+
     feedback.textContent = "Conectando con el servidor de Nova Reset Studio...";
     feedback.className = "text-xs mt-2 text-[#00d2c4] font-medium animate-pulse";
     feedback.classList.remove('hidden');
@@ -267,10 +268,11 @@ async function sendResultsByEmail() {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-    email: userData.email,
-    userData: userData,
-    reportData: reportData
-})
+                email: userData.email,
+                userData: userData,
+                reportData: reportData
+            })
+        });
 
         const data = await response.json();
 
@@ -281,6 +283,7 @@ async function sendResultsByEmail() {
             feedback.textContent = data.message || "Error al procesar el envío. Inténtalo de nuevo.";
             feedback.className = "text-xs mt-2 text-red-400 font-medium";
         }
+
     } catch (error) {
         console.error("Error en la conexión con el servidor:", error);
         feedback.textContent = "No se pudo conectar con el servidor de correo. Asegúrate de que el backend esté ejecutándose.";
