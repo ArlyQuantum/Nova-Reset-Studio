@@ -35,6 +35,14 @@ let userData = {
     email: ""
 };
 
+let reportData = {
+    roles: [],
+    marketMatch: "",
+    tasks: [],
+    keywords: [],
+    strategy: []
+};
+
 const totalSteps = 7;
 
 function startAssessment() {
@@ -186,6 +194,8 @@ function populateResults() {
         { title: "Consultor Generalista / Asesor Estratégico", desc: "Ideal para quienes poseen conocimientos amplios en múltiples áreas." }
     ];
 
+    reportData.roles = matchedRoles;
+
     document.getElementById('results-roles').innerHTML = matchedRoles.map((r, i) => `
         <div class="bg-slate-950/75 border border-slate-800 p-4 rounded-2xl">
             <span class="text-[#00d2c4] font-bold text-sm">#${i+1}</span>
@@ -194,15 +204,20 @@ function populateResults() {
         </div>
     `).join('');
 
-    document.getElementById('results-match').innerHTML = `
-        <p>Tu propósito y tus fortalezas principales en habilidades blandas (<strong class="text-white">${userData.softSkills.slice(0, 3).join(', ')}</strong>) demuestran un perfil versátil.</p>
-    `;
+  reportData.marketMatch =
+    `Tu propósito y tus fortalezas principales en habilidades blandas (${userData.softSkills.slice(0, 3).join(', ')}) demuestran un perfil versátil.`;
+
+document.getElementById('results-match').innerHTML = `
+    <p>${reportData.marketMatch}</p>
+`;
 
     const tasks = [
         `Liderar iniciativas orientadas a tu pasión por: "${userData.passion.substring(0, 50)}..."`,
         "Coordinar equipos de trabajo y optimizar la comunicación interna.",
         "Diseñar planes de acción y reportes de ejecución."
     ];
+
+    reportData.tasks = tasks;
 
     document.getElementById('results-tasks').innerHTML = tasks.map(t => `
         <div class="bg-slate-950/75 border border-slate-800 p-4 rounded-2xl flex items-start space-x-3">
@@ -212,16 +227,22 @@ function populateResults() {
     `).join('');
 
     let dynamicKeywords = [...userData.hardSkills.slice(0, 3), "Perfil Multidisciplinar", "Gestión Estratégica"];
+    reportData.keywords = dynamicKeywords;
     document.getElementById('results-keywords').innerHTML = dynamicKeywords.map(k => `
         <span class="bg-slate-950 border border-slate-700 text-slate-200 text-xs font-semibold px-3 py-2 rounded-xl">🔍 ${k}</span>
     `).join('');
 
-    document.getElementById('results-strategy').innerHTML = `
-        <div class="space-y-2 text-xs text-slate-300">
-            <p><strong>1. Posicionamiento Integral:</strong> Exalta tu capacidad para conectar múltiples áreas en tu currículum.</p>
-            <p><strong>2. Valor Diferencial:</strong> Haz notar que tu competencia en <em>${userData.softSkills[0] || 'Resolución de problemas'}</em> te permite adaptarte rápido.</p>
-        </div>
-    `;
+   reportData.strategy = [
+    "Posicionamiento Integral: Exalta tu capacidad para conectar múltiples áreas en tu currículum.",
+    `Valor Diferencial: Haz notar que tu competencia en ${userData.softSkills[0] || 'Resolución de problemas'} te permite adaptarte rápido.`
+];
+
+document.getElementById('results-strategy').innerHTML = `
+    <div class="space-y-2 text-xs text-slate-300">
+        <p><strong>1. Posicionamiento Integral:</strong> Exalta tu capacidad para conectar múltiples áreas en tu currículum.</p>
+        <p><strong>2. Valor Diferencial:</strong> Haz notar que tu competencia en <em>${userData.softSkills[0] || 'Resolución de problemas'}</em> te permite adaptarte rápido.</p>
+    </div>
+`;
 }
 
 async function sendResultsByEmail() {
@@ -245,8 +266,11 @@ async function sendResultsByEmail() {
         const response = await fetch('https://nova-reset-backend.vercel.app/api/send-email', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email: userData.email, userData: userData })
-        });
+            body: JSON.stringify({
+    email: userData.email,
+    userData: userData,
+    reportData: reportData
+})
 
         const data = await response.json();
 
