@@ -37,75 +37,85 @@ Vercel Serverless API
 Email Processing
   ↓
 Personalized Report
-Features
-Interactive questionnaire
-Email validation
-Personalized report generation
-Frontend-to-backend communication
-Automated email delivery
-User feedback and error handling
-Public deployment
-Responsive interface
-Tech Stack
-Frontend
-HTML5
-CSS3
-JavaScript
-Fetch API
-JSON
-GitHub Pages
-Backend
-Node.js
-JavaScript
-Vercel Serverless Functions
-Environment Variables
-Email automation
-CORS configuration
-Architecture
+```
 
-Frontend repository:
+## Features
+
+- Interactive questionnaire
+- Email validation
+- Personalized report generation
+- Frontend-to-backend communication
+- Automated email delivery
+- User feedback and error handling
+- Public deployment
+- Responsive interface
+
+## Tech Stack
+
+## Frontend
+
+- HTML5
+- CSS3
+- JavaScript
+- Fetch API
+- JSON
+- GitHub Pages
+
+## Backend
+
+- Node.js
+- JavaScript
+- Vercel Serverless Functions
+- Environment Variables
+- Email automation
+- CORS configuration
+
+## Architecture
+
+**Frontend repository:**
 https://github.com/ArlyQuantum/Nova-Reset-Studio
 
-Backend repository:
+**Backend repository:**
 https://github.com/ArlyQuantum/nova-reset-backend
 
-Backend endpoint:
+**Backend endpoint:**
 /api/send-email
 
 The frontend sends a POST request containing structured user and report data. The backend validates the request, processes the report, and delivers the result by email.
 
-What I Learned
+## What I Learned
 
 This project helped me strengthen my understanding of:
 
-frontend and backend integration
-asynchronous JavaScript
-API communication
-serverless deployment
-environment variables
-debugging production issues
-user validation and feedback
-automated email workflows
-Development Process
+- frontend and backend integration
+- asynchronous JavaScript
+- API communication
+- serverless deployment
+- environment variables
+- debugging production issues
+- user validation and feedback
+- automated email workflows
+- Development Process
 
 The project evolved through several iterations:
 
-Built the public assessment interface
-Structured user and report data
-Connected the frontend using fetch()
-Created the serverless backend
-Deployed the backend to Vercel
-Added validation and error handling
-Debugged syntax and connection issues
-Successfully completed the full flow:
-Test → Backend → Email
-Status
+1. Built the public assessment interface
+2. Structured user and report data
+3. Connected the frontend using fetch()
+4. Created the serverless backend
+5. Deployed the backend to Vercel
+6. Added validation and error handling
+7. Debugged syntax and connection issues
+8. Successfully completed the full flow:
+**Test → Backend → Email**
+
+## Status
 
 ✅ Frontend deployed
 ✅ Backend deployed
 ✅ Email delivery working
 ✅ End-to-end flow tested successfully
-```
+
 
 ## About NOVA RESET STUDIO
 
