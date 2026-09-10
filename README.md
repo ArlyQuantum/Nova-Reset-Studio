@@ -50,6 +50,29 @@ Personalized Report
 - Public deployment
 - Responsive interface
 
+  ## Screenshots
+
+### NOVA RESET STUDIO
+
+![NOVA RESET Studio Home](assets/ikigai-home.png)
+
+### Ikigai Assessment
+
+![Ikigai Test Start](assets/ikigai-start.png)
+
+### Assessment Experience
+
+![Ikigai Test Question](assets/ikigai-question.png)
+
+### Personalized Result
+
+![Ikigai Personalized Result](assets/ikigai-result.png)
+
+### Email Delivery
+
+![Ikigai Email Delivery](assets/ikigai-email.png)
+
+
 ## Tech Stack
 
 ## Frontend
